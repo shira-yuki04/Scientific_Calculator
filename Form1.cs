@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -288,6 +288,15 @@ namespace scientific_cal
                 textBox1.Text = $"1/{num1}";
                 textBox2.Text = $"{result}";
             }
+            else if (operation == "%")
+            {
+                string[] parts = textBox1.Text.Split(new string[] { "% of " }, StringSplitOptions.None);
+                double num2percent = Convert.ToDouble(parts[1]);
+                result = (num1 * num2percent) / 100;
+                textBox1.Text = $"{num1}% of {num2percent}";
+                textBox2.Text = $"{result}";
+                return;
+            }
                 //double num2 = Convert.ToDouble(parts[2]); 
                 string expression = textBox1.Text;
             if (expression.Contains(operation))
@@ -326,12 +335,12 @@ namespace scientific_cal
                         result = Math.Pow(num1, num2);
                         break;
                     }
-                    case "%":
+                    /*case "%":
                     {
-             
+
                         result = (num1*num2) / 100;
                         break;
-                    }
+                    }*/
 
                 }
                 textBox1.Text = $"{num1}{operation}{num2}";
@@ -549,7 +558,7 @@ namespace scientific_cal
                 num1 = Convert.ToDouble(textBox1.Text);
                 operation = "%";
                 //num2 = Convert.ToDouble(textBox1.Text);
-                textBox1.Text = $"{num1}%";
+                textBox1.Text = $"{num1}% of ";
              }
         }
     } 
