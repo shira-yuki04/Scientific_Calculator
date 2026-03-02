@@ -180,7 +180,7 @@ namespace scientific_cal
                 }
                 return;
             }
-            else if (operation == "yroot")// confused
+            else if (operation == "yroot")// confused //cant solve this part
             {
                 string[] parts = textBox1.Text.Split('√');
                 double y = Convert.ToDouble(parts[1]);
@@ -335,12 +335,7 @@ namespace scientific_cal
                         result = Math.Pow(num1, num2);
                         break;
                     }
-                    /*case "%":
-                    {
-
-                        result = (num1*num2) / 100;
-                        break;
-                    }*/
+                    
 
                 }
                 textBox1.Text = $"{num1}{operation}{num2}";
